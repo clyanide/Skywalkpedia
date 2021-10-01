@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import OutlineStar from "../../../assets/svg/OutlineStar.svg";
-import SolidStar from "../../../assets/svg/SolidStar.svg";
+import OutlineStar from "../../../assets/svg/outline-star.svg";
+import OutlineStartNegative from "../../../assets/svg/outline-star-negative.svg";
+import SolidStar from "../../../assets/svg/solid-star.svg";
 import styles from "./FavoriteButton.module.scss";
 
-const FavoriteButton = () => {
+const FavoriteButton = (props) => {
   const [active, setActive] = useState(false);
 
   const handleButtonOnClick = () => {
@@ -11,7 +12,13 @@ const FavoriteButton = () => {
   };
   return (
     <button className={styles.button} onClick={handleButtonOnClick}>
-      {active ? <SolidStar /> : <OutlineStar />}
+      {active ? (
+        <SolidStar />
+      ) : props.negative ? (
+        <OutlineStartNegative />
+      ) : (
+        <OutlineStar />
+      )}
     </button>
   );
 };
