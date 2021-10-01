@@ -1,0 +1,27 @@
+.card {
+  width: 100%;
+  background-color: rgb(36, 33, 33);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(85, 85, 85);
+
+  h3 {
+    color: white;
+  }
+}
+
+.description {
+  color: white;
+}

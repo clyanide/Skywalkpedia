@@ -7,7 +7,7 @@ const FilmHeader = () => {
     <div className={styles.header}>
       <ChevronButton />
       <h1>Episode 5 - Empire Strikes Back</h1>
-      <FavoriteButton negative={true} />
+      <FavoriteButton variant="negative" />
     </div>
   );
 };

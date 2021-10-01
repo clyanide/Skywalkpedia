@@ -11,10 +11,14 @@ const FavoriteButton = (props) => {
     setActive(!active);
   };
   return (
-    <button className={styles.button} onClick={handleButtonOnClick}>
+    <button
+      className={styles.button}
+      style={props.size ? { width: props.size, height: props.size } : null}
+      onClick={handleButtonOnClick}
+    >
       {active ? (
         <SolidStar />
-      ) : props.negative ? (
+      ) : props.variant == "negative" ? (
         <OutlineStartNegative />
       ) : (
         <OutlineStar />
