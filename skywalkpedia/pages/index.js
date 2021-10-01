@@ -1,9 +1,10 @@
 import React from "react";
+import { FavoriteButton } from "../components/buttons/index";
 
 const Home = () => {
   return (
     <div>
-      <p>hello</p>
+      <FavoriteButton />
     </div>
   );
 };
