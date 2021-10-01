@@ -1,12 +1,9 @@
 import React from "react";
-import { FavoriteButton } from "../components/buttons/index";
+import { FavoriteButton } from "../components/buttons";
+import { HomeHeader, FilmHeader } from "../components/headers";
 
 const Home = () => {
-  return (
-    <div>
-      <FavoriteButton />
-    </div>
-  );
+  return <HomeHeader />;
 };
 
 export default Home;
