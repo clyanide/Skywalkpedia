@@ -1,0 +1,16 @@
+.board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  color: white;
+  background-color: rgb(36, 33, 33);
+  width: 100px;
+  margin: 0 1rem 1rem 0;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+}
