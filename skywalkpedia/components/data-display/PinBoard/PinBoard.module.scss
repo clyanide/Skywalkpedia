@@ -21,7 +21,6 @@
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 
   .tooltiptext {
     visibility: hidden;
@@ -48,6 +47,7 @@
       flex-direction: column;
       padding-left: 15px;
       padding-right: 5px;
+      padding-top: 15px;
 
       div {
         padding-bottom: 5px;
