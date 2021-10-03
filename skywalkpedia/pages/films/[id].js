@@ -21,15 +21,15 @@ const Film = ({ film, characters, planets, starships, vehicles, species }) => {
         <p>{"Produced By " + film.producer}</p>
         <p>{"Released " + film.release_date}</p>
         <h3>Characters</h3>
-        <PinBoard entries={characters.map((c) => c.name)} />
+        <PinBoard entries={characters.map((c) => c)} enableTooltip={true} />
         <h3>Planets</h3>
-        <PinBoard entries={planets.map((p) => p.name)} />
+        <PinBoard entries={planets.map((p) => p)} />
         <h3>Starships</h3>
-        <PinBoard entries={starships.map((s) => s.name)} />
+        <PinBoard entries={starships.map((s) => s)} />
         <h3>Vehicles</h3>
-        <PinBoard entries={vehicles.map((v) => v.name)} />
+        <PinBoard entries={vehicles.map((v) => v)} />
         <h3>Species</h3>
-        <PinBoard entries={species.map((s) => s.name)} />
+        <PinBoard entries={species.map((s) => s)} />
       </div>
     </div>
   );
