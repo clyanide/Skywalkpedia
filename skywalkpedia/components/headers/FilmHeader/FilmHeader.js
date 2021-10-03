@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./FilmHeader.module.scss";
 import { FavoriteButton, ChevronButton } from "../../buttons";
 
-const FilmHeader = () => {
+const FilmHeader = (props) => {
   return (
     <div className={styles.header}>
       <ChevronButton />
-      <h1>Episode 5 - Empire Strikes Back</h1>
+      <h1>{"Episode " + props.episodeNumber + " - " + props.episodeName}</h1>
       <FavoriteButton variant="negative" />
     </div>
   );

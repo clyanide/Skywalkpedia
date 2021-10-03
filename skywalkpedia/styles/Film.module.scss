@@ -1,0 +1,16 @@
+.page {
+  p {
+    text-align: center;
+    color: white;
+  }
+  h3 {
+    color: white;
+  }
+}
+
+.content {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
