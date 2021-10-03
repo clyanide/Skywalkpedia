@@ -5,18 +5,13 @@ import SolidStar from "../../../assets/svg/solid-star.svg";
 import styles from "./FavoriteButton.module.scss";
 
 const FavoriteButton = (props) => {
-  const [active, setActive] = useState(false);
-
-  const handleButtonOnClick = () => {
-    setActive(!active);
-  };
   return (
     <button
       className={styles.button}
       style={props.size ? { width: props.size, height: props.size } : null}
-      onClick={handleButtonOnClick}
+      onClick={props.onClick}
     >
-      {active ? (
+      {props.favorite ? (
         <SolidStar />
       ) : props.variant == "negative" ? (
         <OutlineStartNegative />

@@ -1,18 +1,40 @@
-import React, { useState } from "react";
-import { FavoriteButton, ChevronButton } from "../../components/buttons";
+import React, { useState, useEffect } from "react";
 import { HomeHeader, FilmHeader } from "../../components/headers";
 import { Search } from "../../components/input";
-import { FilmCard, PinBoard } from "../../components/data-display";
+import { FilmCard } from "../../components/data-display";
 import styles from "../../styles/Home.module.scss";
 
 const Home = ({ films }) => {
+  const initialFavorites = {};
+  for (let i = 0; i < films.results.length; i++) {
+    initialFavorites[films.results[i].episode_id] = false;
+  }
+
   const [searchValue, setSearchValue] = useState("");
+  const [favorites, setFavorites] = useState(initialFavorites);
+
+  useEffect(() => {
+    const data = localStorage.getItem("favorites");
+
+    if (data) {
+      setFavorites(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  });
 
   const searchFieldOnChange = (event) => {
     setSearchValue(event.target.value);
   };
 
   const filmCardOnClick = () => {};
+
+  const handleFavoriteButtonClick = (episodeId) => {
+    setFavorites({ ...favorites, [episodeId]: !favorites[episodeId] });
+    console.log(favorites);
+  };
 
   return (
     <div className={styles.page}>
@@ -27,7 +49,15 @@ const Home = ({ films }) => {
           )
           .map((film, index) => (
             <div key={index} className={styles.card} onClick={filmCardOnClick}>
-              <FilmCard heading={film.title} description={film.opening_crawl} />
+              <FilmCard
+                heading={film.title}
+                description={film.opening_crawl}
+                episodeId={film.episode_id}
+                favorite={favorites[film.episode_id]}
+                onFavoriteButtonClick={() =>
+                  handleFavoriteButtonClick(film.episode_id)
+                }
+              />
             </div>
           ))}
       </div>
