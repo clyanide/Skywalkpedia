@@ -1,11 +1,12 @@
 .header {
-  background-color: black;
+  background-color: rgb(27, 27, 27);
   padding-left: 1.5%;
   height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
+  box-shadow: 0 4px 2px -2px rgb(65, 64, 64);
 
   h1 {
     text-shadow: 0 0 3px #f9e509, 0 0 5px #f9e509;
