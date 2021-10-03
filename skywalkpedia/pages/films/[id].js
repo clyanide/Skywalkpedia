@@ -41,8 +41,8 @@ const Film = ({ film, characters, planets, starships, vehicles, species }) => {
       <div className={styles.content}>
         <p className={styles.opening}>{'"' + film.opening_crawl + '"'}</p>
         <div className={styles.information}>
-          <p>{"Directed By " + film.director}</p>
-          <p>{"Produced By " + film.producer}</p>
+          <p>{"Directed by " + film.director}</p>
+          <p>{"Produced by " + film.producer}</p>
           <p>{"Released " + film.release_date}</p>
         </div>
         <div className={styles.lists}>
