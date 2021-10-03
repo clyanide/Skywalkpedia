@@ -1,17 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { FilmHeader } from "../../components/headers";
 import { PinBoard } from "../../components/data-display";
 import styles from "../../styles/Film.module.scss";
 
 const Film = ({ film, characters, planets, starships, vehicles, species }) => {
-  console.log(characters);
-  console.log(planets);
-  console.log(starships);
-  console.log(vehicles);
-  console.log(species);
   const router = useRouter();
   const { id } = router.query;
+
   return (
     <div className={styles.page}>
       <FilmHeader episodeNumber={film.episode_id} episodeName={film.title} />

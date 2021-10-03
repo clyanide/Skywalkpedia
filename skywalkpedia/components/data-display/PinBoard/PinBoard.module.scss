@@ -23,7 +23,7 @@
 
   .tooltiptext {
     visibility: hidden;
-    width: 120px;
+    width: 180px;
     background-color: #555;
     color: #fff;
     text-align: left;
@@ -54,7 +54,7 @@
   }
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
+/* /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
