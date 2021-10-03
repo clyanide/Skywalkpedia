@@ -29,8 +29,6 @@ const Home = ({ films }) => {
     setSearchValue(event.target.value);
   };
 
-  const filmCardOnClick = () => {};
-
   const handleFavoriteButtonClick = (episodeId) => {
     setFavorites({ ...favorites, [episodeId]: !favorites[episodeId] });
   };
@@ -42,8 +40,8 @@ const Home = ({ films }) => {
     .sort((a, b) =>
       !favorites[a.episode_id] & favorites[b.episode_id] ? 1 : -1
     )
-    .map((film, index) => (
-      <div key={index} className={styles.card} onClick={filmCardOnClick}>
+    .map((film) => (
+      <div className={styles.card} key={film.episode_id}>
         <FilmCard
           heading={film.title}
           description={film.opening_crawl}
@@ -52,6 +50,7 @@ const Home = ({ films }) => {
           onFavoriteButtonClick={() =>
             handleFavoriteButtonClick(film.episode_id)
           }
+          redirectUrl={`/films/${film.episode_id}`}
         />
       </div>
     ));
