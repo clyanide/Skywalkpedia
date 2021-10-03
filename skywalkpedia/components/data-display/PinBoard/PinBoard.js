@@ -10,7 +10,7 @@ const PinBoard = (props) => {
           {props.enableTooltip ? (
             <span className={styles.tooltiptext}>
               {
-                <div>
+                <div className={styles.wrapper}>
                   <div>{"Name: " + element.name}</div>
                   <div>{"Birth Year: " + element.birth_year}</div>
                   <div>{"Eye Color: " + element.eye_color}</div>

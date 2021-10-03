@@ -12,20 +12,34 @@ const Film = ({ film, characters, planets, starships, vehicles, species }) => {
     <div className={styles.page}>
       <FilmHeader episodeNumber={film.episode_id} episodeName={film.title} />
       <div className={styles.content}>
-        <p>{film.opening_crawl}</p>
-        <p>{"Directed By " + film.director}</p>
-        <p>{"Produced By " + film.producer}</p>
-        <p>{"Released " + film.release_date}</p>
-        <h3>Characters</h3>
-        <PinBoard entries={characters.map((c) => c)} enableTooltip={true} />
-        <h3>Planets</h3>
-        <PinBoard entries={planets.map((p) => p)} />
-        <h3>Starships</h3>
-        <PinBoard entries={starships.map((s) => s)} />
-        <h3>Vehicles</h3>
-        <PinBoard entries={vehicles.map((v) => v)} />
-        <h3>Species</h3>
-        <PinBoard entries={species.map((s) => s)} />
+        <p className={styles.opening}>{'"' + film.opening_crawl + '"'}</p>
+        <div className={styles.information}>
+          <p>{"Directed By " + film.director}</p>
+          <p>{"Produced By " + film.producer}</p>
+          <p>{"Released " + film.release_date}</p>
+        </div>
+        <div className={styles.lists}>
+          <div>
+            <h2>Characters</h2>
+            <PinBoard entries={characters.map((c) => c)} enableTooltip={true} />
+          </div>
+          <div>
+            <h2>Planets</h2>
+            <PinBoard entries={planets.map((p) => p)} />
+          </div>
+          <div>
+            <h2>Starships</h2>
+            <PinBoard entries={starships.map((s) => s)} />
+          </div>
+          <div>
+            <h2>Vehicles</h2>
+            <PinBoard entries={vehicles.map((v) => v)} />
+          </div>
+          <div>
+            <h2>Species</h2>
+            <PinBoard entries={species.map((s) => s)} />
+          </div>
+        </div>
       </div>
     </div>
   );

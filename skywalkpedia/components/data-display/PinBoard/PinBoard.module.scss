@@ -6,9 +6,9 @@
 }
 
 .card {
-  color: white;
+  color: rgb(223, 223, 223);
   background-color: rgb(36, 33, 33);
-  width: 100px;
+  width: 120px;
   margin: 0 1rem 1rem 0;
   text-align: center;
   padding: 10px;
@@ -40,6 +40,17 @@
     /* Fade in tooltip */
     opacity: 0;
     transition: opacity 0.3s;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      padding-left: 15px;
+      padding-right: 5px;
+
+      div {
+        padding-bottom: 5px;
+      }
+    }
   }
 
   .tooltiptext::after {
