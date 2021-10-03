@@ -33,8 +33,28 @@ const Home = ({ films }) => {
 
   const handleFavoriteButtonClick = (episodeId) => {
     setFavorites({ ...favorites, [episodeId]: !favorites[episodeId] });
-    console.log(favorites);
   };
+
+  const list = films.results
+    .filter((film) =>
+      film.title.toLowerCase().startsWith(searchValue.toLowerCase())
+    )
+    .sort((a, b) =>
+      !favorites[a.episode_id] & favorites[b.episode_id] ? 1 : -1
+    )
+    .map((film, index) => (
+      <div key={index} className={styles.card} onClick={filmCardOnClick}>
+        <FilmCard
+          heading={film.title}
+          description={film.opening_crawl}
+          episodeId={film.episode_id}
+          favorite={favorites[film.episode_id]}
+          onFavoriteButtonClick={() =>
+            handleFavoriteButtonClick(film.episode_id)
+          }
+        />
+      </div>
+    ));
 
   return (
     <div className={styles.page}>
@@ -42,25 +62,7 @@ const Home = ({ films }) => {
       <div className={styles.search}>
         <Search value={searchValue} onChange={searchFieldOnChange} />
       </div>
-      <div className={styles.list}>
-        {films.results
-          .filter((film) =>
-            film.title.toLowerCase().startsWith(searchValue.toLowerCase())
-          )
-          .map((film, index) => (
-            <div key={index} className={styles.card} onClick={filmCardOnClick}>
-              <FilmCard
-                heading={film.title}
-                description={film.opening_crawl}
-                episodeId={film.episode_id}
-                favorite={favorites[film.episode_id]}
-                onFavoriteButtonClick={() =>
-                  handleFavoriteButtonClick(film.episode_id)
-                }
-              />
-            </div>
-          ))}
-      </div>
+      <div className={styles.list}>{list}</div>
     </div>
   );
 };
