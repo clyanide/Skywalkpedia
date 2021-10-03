@@ -5,6 +5,9 @@
     text-align: center;
   }
 }
+.header {
+  height: 10%;
+}
 
 .content {
   overflow-y: auto;
@@ -13,11 +16,11 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 91%;
+  height: 90%;
 }
 
 .opening {
-  width: 40%;
+  width: 60%;
   color: gold;
   text-align: center;
 }

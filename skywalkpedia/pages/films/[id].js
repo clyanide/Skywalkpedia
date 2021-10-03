@@ -8,9 +8,36 @@ const Film = ({ film, characters, planets, starships, vehicles, species }) => {
   const router = useRouter();
   const { id } = router.query;
 
+  const [favorite, setFavorite] = useState(false);
+
+  useEffect(() => {
+    const data = localStorage.getItem("favorites");
+
+    if (data) {
+      setFavorite(JSON.parse(data)[film.episode_id]);
+    }
+  }, [film.episode_id]);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("favorites"));
+    data[film.episode_id] = favorite;
+    localStorage.setItem("favorites", JSON.stringify(data));
+  });
+
+  const favoriteButtonOnClick = () => {
+    setFavorite(!favorite);
+  };
+
   return (
     <div className={styles.page}>
-      <FilmHeader episodeNumber={film.episode_id} episodeName={film.title} />
+      <div className={styles.header}>
+        <FilmHeader
+          episodeNumber={film.episode_id}
+          episodeName={film.title}
+          favorite={favorite}
+          favoriteButtonOnClick={favoriteButtonOnClick}
+        />
+      </div>
       <div className={styles.content}>
         <p className={styles.opening}>{'"' + film.opening_crawl + '"'}</p>
         <div className={styles.information}>
@@ -46,7 +73,17 @@ const Film = ({ film, characters, planets, starships, vehicles, species }) => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const res = await fetch(`https://swapi.dev/api/films/${params.id}`);
+  const episodeIdToEndpointMapping = {
+    4: 1,
+    5: 2,
+    6: 3,
+    1: 4,
+    2: 5,
+    3: 6,
+  };
+  const res = await fetch(
+    `https://swapi.dev/api/films/${episodeIdToEndpointMapping[params.id]}`
+  );
   const data = await res.json();
 
   const characters = [];

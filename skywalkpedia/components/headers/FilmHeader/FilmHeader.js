@@ -12,6 +12,11 @@ const FilmHeader = (props) => {
         </a>
       </Link>
       <h1>{"Episode " + props.episodeNumber + " - " + props.episodeName}</h1>
+      <FavoriteButton
+        variant="negative"
+        favorite={props.favorite}
+        onClick={props.favoriteButtonOnClick}
+      />
     </div>
   );
 };
