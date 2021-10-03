@@ -6,6 +6,7 @@ https://skywalkpedia.vercel.app/films
 ## Tech Stack
 - React.js
 - Next.js
+- Sass (SCSS)
 - Vercel
 - SWAPI (The Star Wars API)
 
